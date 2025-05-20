@@ -1,0 +1,177 @@
+Benchmark,Time,CPU,Iterations,Optimization,Category
+Running build/benchmark_-O0,-O0,-O0
+Run on (12 X 2096 MHz CPU s),-O0,-O0
+CPU Caches:,-O0,-O0
+  L1 Data 32 KiB (x6),-O0,-O0
+  L1 Instruction 32 KiB (x6),-O0,-O0
+  L2 Unified 512 KiB (x6),-O0,-O0
+  L3 Unified 4096 KiB (x1),-O0,-O0
+Load Average: 0.06, 0.72, 0.75,-O0,-O0
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-O0,-O0
+"BM_SimpleLoop",151814,4384.97,4659.29,ns,,,,,,-O0,-O0
+"BM_SimpleLoopUnroll2",263763,2530.61,2688.9,ns,,,,,,-O0,-O0
+"BM_SimpleLoopUnroll4",412220,1492.89,1586.22,ns,,,,,,-O0,-O0
+Running build/benchmark_-O0,-O0,-O0
+Run on (12 X 2096 MHz CPU s),-O0,-O0
+CPU Caches:,-O0,-O0
+  L1 Data 32 KiB (x6),-O0,-O0
+  L1 Instruction 32 KiB (x6),-O0,-O0
+  L2 Unified 512 KiB (x6),-O0,-O0
+  L3 Unified 4096 KiB (x1),-O0,-O0
+Load Average: 0.08, 0.21, 0.49,-O0,-O0
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-O0,-O0
+"BM_ConditionalLoop",135349,4908.9,5104.36,ns,,,,,,-O0,-O0
+Running build/benchmark_-O0,-O0,-O0
+Run on (12 X 2096 MHz CPU s),-O0,-O0
+CPU Caches:,-O0,-O0
+  L1 Data 32 KiB (x6),-O0,-O0
+  L1 Instruction 32 KiB (x6),-O0,-O0
+  L2 Unified 512 KiB (x6),-O0,-O0
+  L3 Unified 4096 KiB (x1),-O0,-O0
+Load Average: 0.13, 0.19, 0.45,-O0,-O0
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-O0,-O0
+"BM_NestedLoop",9269,75052.9,77509.1,ns,,,,,,-O0,-O0
+"BM_NestedLoopTiled",9549,72105.8,74464.9,ns,,,,,,-O0,-O0
+Running build/benchmark_-O0,-O0,-O0
+Run on (12 X 2096 MHz CPU s),-O0,-O0
+CPU Caches:,-O0,-O0
+  L1 Data 32 KiB (x6),-O0,-O0
+  L1 Instruction 32 KiB (x6),-O0,-O0
+  L2 Unified 512 KiB (x6),-O0,-O0
+  L3 Unified 4096 KiB (x1),-O0,-O0
+Load Average: 0.15, 0.18, 0.42,-O0,-O0
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-O0,-O0
+"BM_SequentialAccess",130267,5040.74,5276.13,ns,,,,,,-O0,-O0
+"BM_RandomAccess",13079,49502.4,51812.3,ns,,,,,,-O0,-O0
+Running build/benchmark_-O2,-O2,-O2
+Run on (12 X 2096 MHz CPU s),-O2,-O2
+CPU Caches:,-O2,-O2
+  L1 Data 32 KiB (x6),-O2,-O2
+  L1 Instruction 32 KiB (x6),-O2,-O2
+  L2 Unified 512 KiB (x6),-O2,-O2
+  L3 Unified 4096 KiB (x1),-O2,-O2
+Load Average: 0.14, 0.72, 0.75,-O2,-O2
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-O2,-O2
+"BM_SimpleLoop",1208425835,0.587379,0.587385,ns,,,,,,-O2,-O2
+"BM_SimpleLoopUnroll2",1244404623,0.575333,0.575337,ns,,,,,,-O2,-O2
+"BM_SimpleLoopUnroll4",1200599614,0.59348,0.608243,ns,,,,,,-O2,-O2
+Running build/benchmark_-O2,-O2,-O2
+Run on (12 X 2096 MHz CPU s),-O2,-O2
+CPU Caches:,-O2,-O2
+  L1 Data 32 KiB (x6),-O2,-O2
+  L1 Instruction 32 KiB (x6),-O2,-O2
+  L2 Unified 512 KiB (x6),-O2,-O2
+  L3 Unified 4096 KiB (x1),-O2,-O2
+Load Average: 0.16, 0.22, 0.49,-O2,-O2
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-O2,-O2
+"BM_ConditionalLoop",571815,1235.64,1230.3,ns,,,,,,-O2,-O2
+Running build/benchmark_-O2,-O2,-O2
+Run on (12 X 2096 MHz CPU s),-O2,-O2
+CPU Caches:,-O2,-O2
+  L1 Data 32 KiB (x6),-O2,-O2
+  L1 Instruction 32 KiB (x6),-O2,-O2
+  L2 Unified 512 KiB (x6),-O2,-O2
+  L3 Unified 4096 KiB (x1),-O2,-O2
+Load Average: 0.13, 0.19, 0.45,-O2,-O2
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-O2,-O2
+"BM_NestedLoop",1180984131,0.560934,0.581015,ns,,,,,,-O2,-O2
+"BM_NestedLoopTiled",1289507,525.565,545.782,ns,,,,,,-O2,-O2
+Running build/benchmark_-O2,-O2,-O2
+Run on (12 X 2096 MHz CPU s),-O2,-O2
+CPU Caches:,-O2,-O2
+  L1 Data 32 KiB (x6),-O2,-O2
+  L1 Instruction 32 KiB (x6),-O2,-O2
+  L2 Unified 512 KiB (x6),-O2,-O2
+  L3 Unified 4096 KiB (x1),-O2,-O2
+Load Average: 0.15, 0.18, 0.42,-O2,-O2
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-O2,-O2
+"BM_SequentialAccess",2391686,328.029,343.351,ns,,,,,,-O2,-O2
+"BM_RandomAccess",71206,9274.15,9707.16,ns,,,,,,-O2,-O2
+Running build/benchmark_-O3,-O3,-O3
+Run on (12 X 2096 MHz CPU s),-O3,-O3
+CPU Caches:,-O3,-O3
+  L1 Data 32 KiB (x6),-O3,-O3
+  L1 Instruction 32 KiB (x6),-O3,-O3
+  L2 Unified 512 KiB (x6),-O3,-O3
+  L3 Unified 4096 KiB (x1),-O3,-O3
+Load Average: 0.21, 0.73, 0.75,-O3,-O3
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-O3,-O3
+"BM_SimpleLoop",1198488535,0.572026,0.592828,ns,,,,,,-O3,-O3
+"BM_SimpleLoopUnroll2",1149130929,0.567995,0.58865,ns,,,,,,-O3,-O3
+"BM_SimpleLoopUnroll4",1197279098,0.593463,0.615048,ns,,,,,,-O3,-O3
+Running build/benchmark_-O3,-O3,-O3
+Run on (12 X 2096 MHz CPU s),-O3,-O3
+CPU Caches:,-O3,-O3
+  L1 Data 32 KiB (x6),-O3,-O3
+  L1 Instruction 32 KiB (x6),-O3,-O3
+  L2 Unified 512 KiB (x6),-O3,-O3
+  L3 Unified 4096 KiB (x1),-O3,-O3
+Load Average: 0.23, 0.24, 0.49,-O3,-O3
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-O3,-O3
+"BM_ConditionalLoop",565350,1212.12,1235.55,ns,,,,,,-O3,-O3
+Running build/benchmark_-O3,-O3,-O3
+Run on (12 X 2096 MHz CPU s),-O3,-O3
+CPU Caches:,-O3,-O3
+  L1 Data 32 KiB (x6),-O3,-O3
+  L1 Instruction 32 KiB (x6),-O3,-O3
+  L2 Unified 512 KiB (x6),-O3,-O3
+  L3 Unified 4096 KiB (x1),-O3,-O3
+Load Average: 0.20, 0.20, 0.45,-O3,-O3
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-O3,-O3
+"BM_NestedLoop",1231015975,0.56228,0.58392,ns,,,,,,-O3,-O3
+"BM_NestedLoopTiled",1274758,515.239,535.109,ns,,,,,,-O3,-O3
+Running build/benchmark_-O3,-O3,-O3
+Run on (12 X 2096 MHz CPU s),-O3,-O3
+CPU Caches:,-O3,-O3
+  L1 Data 32 KiB (x6),-O3,-O3
+  L1 Instruction 32 KiB (x6),-O3,-O3
+  L2 Unified 512 KiB (x6),-O3,-O3
+  L3 Unified 4096 KiB (x1),-O3,-O3
+Load Average: 0.22, 0.20, 0.43,-O3,-O3
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-O3,-O3
+"BM_SequentialAccess",2298291,306.323,316.026,ns,,,,,,-O3,-O3
+"BM_RandomAccess",151430,4505.82,4648.56,ns,,,,,,-O3,-O3
+Running build/benchmark_-Ofast,-Ofast,-Ofast
+Run on (12 X 2096 MHz CPU s),-Ofast,-Ofast
+CPU Caches:,-Ofast,-Ofast
+  L1 Data 32 KiB (x6),-Ofast,-Ofast
+  L1 Instruction 32 KiB (x6),-Ofast,-Ofast
+  L2 Unified 512 KiB (x6),-Ofast,-Ofast
+  L3 Unified 4096 KiB (x1),-Ofast,-Ofast
+Load Average: 0.43, 0.77, 0.77,-Ofast,-Ofast
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-Ofast,-Ofast
+"BM_SimpleLoop",628061801,1.09347,1.17364,ns,,,,,,-Ofast,-Ofast
+"BM_SimpleLoopUnroll2",591023036,1.06228,1.1558,ns,,,,,,-Ofast,-Ofast
+"BM_SimpleLoopUnroll4",573792127,1.17742,1.28108,ns,,,,,,-Ofast,-Ofast
+Running build/benchmark_-Ofast,-Ofast,-Ofast
+Run on (12 X 2096 MHz CPU s),-Ofast,-Ofast
+CPU Caches:,-Ofast,-Ofast
+  L1 Data 32 KiB (x6),-Ofast,-Ofast
+  L1 Instruction 32 KiB (x6),-Ofast,-Ofast
+  L2 Unified 512 KiB (x6),-Ofast,-Ofast
+  L3 Unified 4096 KiB (x1),-Ofast,-Ofast
+Load Average: 0.23, 0.24, 0.49,-Ofast,-Ofast
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-Ofast,-Ofast
+"BM_ConditionalLoop",555909,1249.65,1267.68,ns,,,,,,-Ofast,-Ofast
+Running build/benchmark_-Ofast,-Ofast,-Ofast
+Run on (12 X 2096 MHz CPU s),-Ofast,-Ofast
+CPU Caches:,-Ofast,-Ofast
+  L1 Data 32 KiB (x6),-Ofast,-Ofast
+  L1 Instruction 32 KiB (x6),-Ofast,-Ofast
+  L2 Unified 512 KiB (x6),-Ofast,-Ofast
+  L3 Unified 4096 KiB (x1),-Ofast,-Ofast
+Load Average: 0.26, 0.22, 0.46,-Ofast,-Ofast
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-Ofast,-Ofast
+"BM_NestedLoop",627856185,1.15486,1.17942,ns,,,,,,-Ofast,-Ofast
+"BM_NestedLoopTiled",1333168,519.622,536.573,ns,,,,,,-Ofast,-Ofast
+Running build/benchmark_-Ofast,-Ofast,-Ofast
+Run on (12 X 2096 MHz CPU s),-Ofast,-Ofast
+CPU Caches:,-Ofast,-Ofast
+  L1 Data 32 KiB (x6),-Ofast,-Ofast
+  L1 Instruction 32 KiB (x6),-Ofast,-Ofast
+  L2 Unified 512 KiB (x6),-Ofast,-Ofast
+  L3 Unified 4096 KiB (x1),-Ofast,-Ofast
+Load Average: 0.28, 0.21, 0.43,-Ofast,-Ofast
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,-Ofast,-Ofast
+"BM_SequentialAccess",4309156,161.38,166.484,ns,,,,,,-Ofast,-Ofast
+"BM_RandomAccess",153225,4478.14,4649.93,ns,,,,,,-Ofast,-Ofast

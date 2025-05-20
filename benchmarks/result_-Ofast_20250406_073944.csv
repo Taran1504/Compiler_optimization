@@ -1,0 +1,13 @@
+2025-04-06T07:39:48+00:00
+Running build/benchmark_-Ofast
+Run on (12 X 2096 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB (x6)
+  L1 Instruction 32 KiB (x6)
+  L2 Unified 512 KiB (x6)
+  L3 Unified 4096 KiB (x1)
+Load Average: 0.43, 0.77, 0.77
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+"BM_SimpleLoop",628061801,1.09347,1.17364,ns,,,,,
+"BM_SimpleLoopUnroll2",591023036,1.06228,1.1558,ns,,,,,
+"BM_SimpleLoopUnroll4",573792127,1.17742,1.28108,ns,,,,,

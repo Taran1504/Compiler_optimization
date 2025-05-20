@@ -1,0 +1,12 @@
+2025-04-06T07:48:48+00:00
+Running build/benchmark_-Ofast
+Run on (12 X 2096 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB (x6)
+  L1 Instruction 32 KiB (x6)
+  L2 Unified 512 KiB (x6)
+  L3 Unified 4096 KiB (x1)
+Load Average: 0.26, 0.22, 0.46
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+"BM_NestedLoop",627856185,1.15486,1.17942,ns,,,,,
+"BM_NestedLoopTiled",1333168,519.622,536.573,ns,,,,,

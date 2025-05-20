@@ -1,0 +1,12 @@
+2025-04-06T07:50:18+00:00
+Running build/benchmark_-Ofast
+Run on (12 X 2096 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB (x6)
+  L1 Instruction 32 KiB (x6)
+  L2 Unified 512 KiB (x6)
+  L3 Unified 4096 KiB (x1)
+Load Average: 0.28, 0.21, 0.43
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+"BM_SequentialAccess",4309156,161.38,166.484,ns,,,,,
+"BM_RandomAccess",153225,4478.14,4649.93,ns,,,,,
