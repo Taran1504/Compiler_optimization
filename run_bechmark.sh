@@ -1,80 +1,72 @@
 #!/bin/bash
 
-# Directory setup
-BENCHMARK_DIR="benchmarks"
-RESULTS_DIR="${BENCHMARK_DIR}/results"
+# === CONFIGURATION ===
+SOURCES=(
+  "simple_loops.cc"
+  "memory_access.cc"
+  "conditional_loops.cc"
+  "nested_loops.cc"
+  "loop_unroll.cc"
+  "function_inlining.cc"
+  "instruction_scheduling.cc"
+)
+LABELS=(
+  "SimpleLoop"
+  "MemoryAccess"
+  "ConditionalLoops"
+  "NestedLoops"
+  "LoopUnroll"
+  "FunctionInlining"
+  "InstructionScheduling"
+)
+OPT_FLAGS=("-O0" "-O2" "-O3" "-Ofast")
+REPEAT=40  # Each binary runs 40 times
+
+BINARY_NAME="benchmark"
 BUILD_DIR="build"
+RESULT_DIR="benchmarks"
+MERGED_CSV="merged_benchmark_results.csv"
 
-# Create directories if they don't exist
-mkdir -p ${RESULTS_DIR}
-mkdir -p ${BUILD_DIR}
+# === SETUP ===
+mkdir -p "$BUILD_DIR"
+mkdir -p "$RESULT_DIR"
+echo "Benchmark,Time,CPU,Iterations" > "$MERGED_CSV"  # CSV Header
 
-# Compiler settings
-COMPILER="g++"
-OPTIMIZATION_LEVELS=("-O0" "-O2" "-O3" "-Ofast")
-BENCHMARK_CATEGORIES=("Loops" "MemoryAccess" "Conditionals" "NestedLoops" "FunctionInlining" "InstructionScheduling")
+TOTAL_RUNS=$(( ${#SOURCES[@]} * ${#OPT_FLAGS[@]} * REPEAT ))
+COUNT=1
 
-# Build and run benchmarks for each optimization level
-run_benchmarks() {
-    local opt_level=$1
-    echo "Running benchmarks with ${opt_level}..."
-    
-    # Build
-    ${COMPILER} ${opt_level} -std=c++17 \
-        ${BENCHMARK_DIR}/src/*.cpp \
-        -I${BENCHMARK_DIR}/include \
-        -lbenchmark -lpthread \
-        -o ${BUILD_DIR}/benchmark_${opt_level//-/}
+# === MAIN LOOP ===
+for i in "${!SOURCES[@]}"; do
+  SRC="${SOURCES[$i]}"
+  LABEL="${LABELS[$i]:-Source_$i}"
 
-    # Run and save results
-    timestamp=$(date +%Y%m%d_%H%M%S)
-    result_file="${RESULTS_DIR}/benchmark_results_${opt_level//-/}_${timestamp}.csv"
-    ./${BUILD_DIR}/benchmark_${opt_level//-/} \
-        --benchmark_format=csv \
-        --benchmark_out="${result_file}" \
-        --benchmark_repetitions=10
-}
+  for FLAG in "${OPT_FLAGS[@]}"; do
+    BIN="$BUILD_DIR/${BINARY_NAME}_${LABEL}_${FLAG//-/}"
 
-# Clean previous builds
-clean_build() {
-    echo "Cleaning previous builds..."
-    rm -rf ${BUILD_DIR}/*
-}
+    echo "⏳ Compiling $SRC with $FLAG..."
+    g++ "$SRC" -o "$BIN" -I/usr/local/include -L/usr/local/lib -lbenchmark -lpthread "$FLAG"
 
-# Main execution
-main() {
-    clean_build
-    
-    # Run benchmarks for each optimization level
-    for opt_level in "${OPTIMIZATION_LEVELS[@]}"; do
-        run_benchmarks "${opt_level}"
+    if [ $? -ne 0 ]; then
+      echo "Compilation failed for $SRC with $FLAG"
+      continue
+    fi
+
+    for ((run=1; run<=$REPEAT; run++)); do
+      TEMP_CSV="$RESULT_DIR/temp_result.csv"
+      echo "▶️ [$COUNT/$TOTAL_RUNS] Running $LABEL ($FLAG) Run $run/$REPEAT..."
+      "$BIN" --benchmark_out="$TEMP_CSV" --benchmark_out_format=csv > /dev/null 2>&1
+
+      if [ -f "$TEMP_CSV" ]; then
+        tail -n +2 "$TEMP_CSV" | awk -v label="${LABEL}_${FLAG}" -F, 'BEGIN{OFS=","} {print label,$4,$5,$6}' >> "$MERGED_CSV"
+        rm "$TEMP_CSV"
+      fi
+      ((COUNT++))
     done
-    
-    # Combine results
-    echo "Combining results..."
-    {
-        # Write header
-        echo "Benchmark,Time,CPU,Iterations,Optimization,Category"
-        
-        # Combine all result files
-        for file in ${RESULTS_DIR}/benchmark_results_*.csv; do
-            opt_level=$(echo ${file} | grep -oP 'O[0-9fast]+')
-            tail -n +2 "${file}" | while IFS=, read -r benchmark time cpu iterations rest; do
-                # Determine category
-                category=""
-                for cat in "${BENCHMARK_CATEGORIES[@]}"; do
-                    if [[ ${benchmark} =~ ${cat} ]]; then
-                        category=${cat}
-                        break
-                    fi
-                done
-                echo "${benchmark},${time},${cpu},${iterations},-${opt_level},${category}"
-            done
-        done
-    } > "${RESULTS_DIR}/merged_benchmark_results.csv"
-    
-    echo "Benchmarking complete. Results saved in ${RESULTS_DIR}/merged_benchmark_results.csv"
-}
 
-# Run the script
-main
+    echo "Finished $LABEL with $FLAG."
+    echo "----------------------------"
+  done
+
+done
+
+echo "All benchmarks completed. Merged CSV: $MERGED_CSV"
